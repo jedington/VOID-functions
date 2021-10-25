@@ -13,7 +13,5 @@ function Update-Help-VOID {
 	Start-Job -Name "UpdateHelp" -ScriptBlock { 
 		Update-Help -Force -Verbose -EA 0 -UICulture en-US  
 	} | Out-Null
-	Invoke-VOIDT '<<<-------------------------------->>>'
-	Invoke-VOIDT '<<< UPDATING HELP IN BACKGROUND... >>>'
-	Invoke-VOIDT '<<<-------------------------------->>>'
+	Invoke-VOIDX 'UPDATING HELP IN BACKGROUND...'
 }

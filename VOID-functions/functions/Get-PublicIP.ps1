@@ -17,6 +17,6 @@ function Get-PublicIP {
     	Invoke-VOIDT "<<<------------$ipdashes->>>"	
 	}
 	else {
-		Invoke-VOIDX 'CHECK NET CONNECTION'
+		Invoke-VOIDX 'OPERATION FAILED... CHECK NET CONNECTION'
 	}
 }	

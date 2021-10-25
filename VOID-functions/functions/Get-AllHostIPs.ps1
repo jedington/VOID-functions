@@ -26,6 +26,6 @@ function Get-AllHostIPs {
 		$AllHostIPs.Split()
 	}
 	else {
-		Invoke-VOIDX 'UNKNOWN PROBLEM'
+		Invoke-VOIDX 'OPERATION FAILED... UNKNOWN PROBLEM'
 	}
 }

@@ -1,5 +1,5 @@
 <#
-	.SYNOPSIS
+    .SYNOPSIS
         Module, as stated in the name, it's functions.
     .DESCRIPTION
 		A Module of example functions while I am learning PowerShell.
@@ -36,17 +36,12 @@ else {
 
 [array]$functionslist = Get-ChildItem -path $VOIDfunctions -name
 foreach ($function in $functionslist) {
-	. ($VOIDfunctions + $function)
+    . ($VOIDfunctions + $function)
 }
 
 ###########
 # WELCOME #
 ###########
-Write-Host ''
-[string]$envusrdashes = '-'*($env:USERNAME.Length)
-Invoke-VOIDT "<<<---------$envusrdashes->>>"
-Invoke-VOIDT "<<< WELCOME $env:USERNAME >>>"
-Invoke-VOIDT "<<<---------$envusrdashes->>>"
-Write-Host ''
+Invoke-VOIDX "WELCOME $env:USERNAME"
 
 # Export-ModuleMember -function '*' -variable '*'
