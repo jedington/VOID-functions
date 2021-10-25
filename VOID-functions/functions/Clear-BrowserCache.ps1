@@ -74,8 +74,6 @@ function Clear-BrowserCache {
 		}
 	}
 	elseif ([bool]($tempfiles) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
-		Invoke-VOIDT '<<<------------------------->>>'
-		Invoke-VOIDT '<<< WINDOWS ONLY FOR NOW... >>>'
-		Invoke-VOIDT '<<<------------------------->>>'
+		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
 	}
 }

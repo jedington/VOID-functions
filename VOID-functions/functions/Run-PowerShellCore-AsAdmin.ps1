@@ -14,21 +14,17 @@ function Open-PowerShellCore-AsAdmin ([string]$value='.') {
 	elseif ([bool]($IsWindows) -or [bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0)) {
 		if (!(Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*" | 
 			Where-Object DisplayName -like "PowerShell*")) {
-			Invoke-VOIDT '<<<--------------------------->>>'
-			Invoke-VOIDT '<<< POWERSHELL CORE NOT FOUND >>>'
-			Invoke-VOIDT '<<<--------------------------->>>'
+			Invoke-VOIDX 'POWERSHELL CORE NOT FOUND'
 			Update-PowerShell
 		}
 		Start-Process pwsh -Verb RunAs
 	}
 	elseif ([bool]($IsCoreCLR) -or [bool]($PSVersionTable | Where-Object PSVersion -le 7 -EA 0)) {
-		Invoke-VOIDT '<<<---------------------------------->>>'
-		Invoke-VOIDT '<<< POWERSHELL CORE UPDATE AVAILABLE >>>'
-		Invoke-VOIDT '<<<---------------------------------->>>'
+		Invoke-VOIDX 'POWERSHELL CORE UPDATE AVAILABLE'
 		Update-PowerShell
 		Start-Process pwsh -Verb RunAs
 	}
 	else {
-		Invoke-VOIDX 'CANT ESCALATE TO ADMIN'
+		Invoke-VOIDX 'OPERATION FAILED... CANT ESCALATE TO ADMIN'
 	}
 }

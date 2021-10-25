@@ -13,8 +13,6 @@ function Open-PowerShellWindows-AsAdmin ([string]$value='.') {
 		Start-Process powershell -Verb RunAs
 	}
 	else {
-		Invoke-VOIDT '<<<--------------------------------->>>'
-		Invoke-VOIDT '<<< WINDOWS POWERSHELL NOT FOUND... >>>'
-		Invoke-VOIDT '<<<--------------------------------->>>'
+    	Invoke-VOIDX 'OPERATION FAILED... WINDOWS POWERSHELL NOT FOUND'
 	}
 }

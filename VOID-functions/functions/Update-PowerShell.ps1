@@ -18,10 +18,7 @@ function Update-PowerShell {
 					sudo bash install-powershell.sh; 
 					rm install-powershell.sh"
 		}
-		Invoke-VOIDT '<<<------------------------------------------>>>'
-		Invoke-VOIDT '<<< PAUSED... <ENTER> WHEN READY TO CONTINUE >>>'
-		Invoke-VOIDT '<<<------------------------------------------>>>'
-		Read-Host
-		
+		Invoke-VOIDX 'PAUSED... <ENTER> WHEN READY TO CONTINUE'
+		Read-Host		
 	}
 }

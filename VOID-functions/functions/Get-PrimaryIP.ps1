@@ -14,13 +14,9 @@ function Get-PrimaryIP {
 		}
 	).IPAddress	
 	if ([bool]($primaryip)) {
-		Write-Host ''
-		[string]$pridashes = '-'*($primaryip.Length)
-    	Invoke-VOIDT "<<<------------------$pridashes->>>"
-    	Invoke-VOIDT "<<< PRIMARY HOST IP: $primaryip >>>"
-    	Invoke-VOIDT "<<<------------------$pridashes->>>"
+    	Invoke-VOIDX "PRIMARY HOST IP: $primaryip"
 	}
 	else {
-		Invoke-VOIDX 'UNKNOWN PROBLEM'
+		Invoke-VOIDX 'OPERATION FAILED... UNKNOWN PROBLEM'
 	}
 }
