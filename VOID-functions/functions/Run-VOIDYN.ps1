@@ -7,12 +7,12 @@
 ######################
 # YN / YES/NO PROMPT #
 ######################
-function Invoke-VOIDYN ([string]$input) {
+function Invoke-VOIDYN ([string]$message) {
 	Invoke-VOIDX '[Y]ES / [N]O'
-	$answeryn = Read-Host $input
+	$answeryn = Read-Host $message
 	while ('[y]es','[n]o','yes','no','y','n' -notcontains $answeryn) {
 		Invoke-VOIDX 'TRY AGAIN... [Y]ES / [N]O'
-		$answeryn = Read-Host $input
+		$answeryn = Read-Host $message
 	}
 	switch ($answeryn) {
 		'[y]es'	{return $true}
