@@ -2,13 +2,13 @@
     .SYNOPSIS
         Module, as stated in the name, it's functions.
     .DESCRIPTION
-		A Module of example functions while I am learning PowerShell.
-		Many of these functions are very elementary in capability or scope. 
-		None of this is advanced, so do not expect this module to be practical.
+        A Module of example functions while I am learning PowerShell.
+        Many of these functions are very elementary in capability or scope. 
+        None of this is advanced, so do not expect this module to be practical.
     .NOTES
-		This most likely will not work in any PowerShell versions older than 5.
-		High odds this script will be buggy for anything not Windows!
-		Trying to make it flexible for Linux & MacOS later on.
+        This most likely will not work in any PowerShell versions older than 5.
+        High odds this script will be buggy for anything not Windows!
+        Trying to make it flexible for Linux & MacOS later on.
 #>
 
 ##################
