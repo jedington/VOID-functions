@@ -1,7 +1,7 @@
 <#
 	.SYNOPSIS
-    .DESCRIPTION
-    .NOTES
+	.DESCRIPTION
+	.NOTES
 #>
 
 #################
