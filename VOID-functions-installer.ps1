@@ -5,9 +5,16 @@
         Installs:
             - 'VOID-functions' module, manifest, functions.
     .NOTES
-		This most likely will not work in any PowerShell versions older than 5.
-		Trying to make it flexible for Linux & MacOS later on.
+        This most likely will not work in any PowerShell versions older than 5.
+        Trying to make it flexible for Linux & MacOS later on.
 #>
+
+##################
+# DEBUG SETTINGS #
+##################
+#- Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Continue'
+$WarningPreference = 'SilentlyContinue'
 
 ##########################################
 # FORCE RUN SCRIPT AS ADMIN AND CONTINUE #
@@ -73,7 +80,8 @@ foreach ($function in [array]($functionslist.href)) {
     $function = $function.TrimStart('/jedington/VOID-functions/blob/master/VOID-functions/functions/')
     $download = ($VOIDfunctions+$function)
     Start-BitsTransfer -source "$rawrepo/functions/$function" -destination $download
-    # Invoke-WebRequest "$rawrepo/functions/$function" -OutFile $download
+    # 'Start-BitsTransfer' preferrable (particularly here) as 'Invoke-WebRequest' has a limit of 10
+    #- Invoke-WebRequest "$rawrepo/functions/$function" -OutFile $download
 }
 
 if (!(Get-Content $profile | Select-String 'Import-Module VOID-functions -DisableNameChecking')) {
