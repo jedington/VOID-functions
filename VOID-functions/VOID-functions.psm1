@@ -15,7 +15,7 @@
 # DEBUG SETTINGS #
 ##################
 #- Set-StrictMode -Version Latest
-#- $ErrorActionPreference = 'Inquire'
+$ErrorActionPreference = 'Continue'
 $WarningPreference = 'SilentlyContinue'
 
 ####################################
