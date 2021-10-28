@@ -13,7 +13,7 @@ function Clear-BrowserCache {
 	if ([bool]($bcache) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
 		Where-Object PSVersion -le 5 -EA 0))) {
 		$users = Get-ChildItem "$env:HOMEDRIVE\Users" | Select-Object Name
-    	$users = $users.Name
+		$users = $users.Name
 		if ([bool](Get-Service googlechrome*)) {
 			foreach ($user in $users) {
 				$bchromed = "$env:HOMEDRIVE\Users\$user\AppData\Local\Google\Chrome\User Data\Default"
@@ -26,7 +26,7 @@ function Clear-BrowserCache {
 			}
 			$profiles = Get-ChildItem -Path $bchromep | Select-Object Name | Where-Object Name -Like "Profile*"
         	foreach ($account in $profiles) {
-            	$account = $account.Name
+				$account = $account.Name
 				$bchromep = "$env:HOMEDRIVE\Users\$user\AppData\Local\Google\Chrome\User Data"
 				Remove-Item -path "$bchromep\$account\Cache\*" -Recurse -Force -EA 0 -Verbose
 				Remove-Item -path "$bchromep\$account\Cache2\entries\*" -Recurse -Force -EA 0 -Verbose

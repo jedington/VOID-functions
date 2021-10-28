@@ -4,10 +4,10 @@
 	.NOTES
 #>
 
-####################################
-# OPEN WINDOWS POWERSHELL AS ADMIN #
-####################################
-function Open-PowerShellWindows-AsAdmin ([string]$value='.') {
+#####################################
+# START WINDOWS POWERSHELL AS ADMIN #
+#####################################
+function Start-PowerShellWindows-AsAdmin ([string]$value='.') {
 	if ([bool]($IsWindows) -or [bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0)) {
 		# (Get-Host).Version | Where-Object Major -le 5 -EA 0)
 		Start-Process powershell -Verb RunAs
