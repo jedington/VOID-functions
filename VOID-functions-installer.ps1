@@ -9,13 +9,6 @@
         Trying to make it flexible for Linux & MacOS later on.
 #>
 
-##################
-# DEBUG SETTINGS #
-##################
-#- Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Continue'
-$WarningPreference = 'SilentlyContinue'
-
 ##########################################
 # FORCE RUN SCRIPT AS ADMIN AND CONTINUE #
 ##########################################
@@ -37,6 +30,13 @@ if (!($elevated)) {
     }
     exit
 }
+
+##################
+# DEBUG SETTINGS #
+##################
+#- Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Continue'
+$WarningPreference = 'SilentlyContinue'
 
 ####################################################################
 # CREATE BLANK FOLDER FOR MODULE && WEB-SCRAPE GITHUB SCRIPT FILES #
@@ -79,7 +79,8 @@ $functionslist = (Invoke-WebRequest $repo).Links | ? href -like *.ps1
 foreach ($function in [array]($functionslist.href)) {
     $function = $function.TrimStart('/jedington/VOID-functions/blob/master/VOID-functions/functions/')
     $download = ($VOIDfunctions+$function)
-    Start-BitsTransfer -source "$rawrepo/functions/$function" -destination $download
+    $source = "$rawrepo/functions/$function"
+    Start-BitsTransfer -source $source -destination $download
     # 'Start-BitsTransfer' preferrable (particularly here) as 'Invoke-WebRequest' has a limit of 10
     #- Invoke-WebRequest "$rawrepo/functions/$function" -OutFile $download
 }
