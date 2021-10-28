@@ -20,15 +20,15 @@ function Clear-TempFiles {
 			Remove-Item -path "$userdir\Dropbox*\.dropbox.cache\*" -Recurse -Force -EA 0 -Verbose
 			$userappdata = "$userdir\AppData\Local"
 			Remove-Item -path "$userappdata\Temp\*" -Recurse -Force -EA 0 -Verbose
-    		Remove-Item -path "$userappdata\CrashDumps\*" -Recurse -Force -EA 0 -Verbose
+			Remove-Item -path "$userappdata\CrashDumps\*" -Recurse -Force -EA 0 -Verbose
 			Remove-Item -path "$userappdata\Microsoft\Teams\previous\*" -Recurse -Force -EA 0 -Verbose
 			Remove-Item -path "$userappdata\Microsoft\Teams\stage\*" -Recurse -Force -EA 0 -Verbose
 			$userwindata = "$userappdata\Microsoft\Windows"
 			Remove-Item -path "$userwindata\Temporary Internet Files\*" -Recurse -Force -EA 0 -Verbose
 			Remove-Item -path "$userwindata\INetCache\* " -Recurse -Force -EA 0 -Verbose
 			Remove-Item -path "$userwindata\WebCache\* " -Recurse -Force -EA 0 -Verbose
-    		Remove-Item -path "$userwindata\AppCache\*" -Recurse -Force -EA 0 -Verbose
-    		Remove-Item -path "$userwindata\WER\*" -Recurse -Force -EA 0 -Verbose
+			Remove-Item -path "$userwindata\AppCache\*" -Recurse -Force -EA 0 -Verbose
+			Remove-Item -path "$userwindata\WER\*" -Recurse -Force -EA 0 -Verbose
 		}
 		Remove-Item -path "$env:windir\Temp\*" -Recurse -Force -EA 0 -Verbose
 		Remove-Item -path "$env:windir\Prefetch\*" -Recurse -Force -EA 0 -Verbose
