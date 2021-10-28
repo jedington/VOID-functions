@@ -4,10 +4,10 @@
 	.NOTES
 #>
 
-#################################
-# OPEN POWERSHELL CORE AS ADMIN #
-#################################
-function Open-PowerShellCore-AsAdmin ([string]$value='.') {
+##################################
+# START POWERSHELL CORE AS ADMIN #
+##################################
+function Start-PowerShellCore-AsAdmin ([string]$value='.') {
 	if ([bool]($PSVersionTable | Where-Object PSVersion -like 7.1* -EA 0)) {
 		Start-Process pwsh -Verb RunAs
 	}

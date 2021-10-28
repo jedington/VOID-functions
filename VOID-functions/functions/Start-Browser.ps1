@@ -4,10 +4,10 @@
 	.NOTES
 #>
 
-########################################################
-# OPEN BROWSER / A BIT UGLY ATM, DUE TO OPTIMIZE LATER #
-########################################################
-function Open-Browser ([string] $browser, [string] $website='github.com') {
+#########################################################
+# START BROWSER / A BIT UGLY ATM, DUE TO OPTIMIZE LATER #
+#########################################################
+function Start-Browser ([string] $browser, [string] $website='github.com') {
 	$checkhttp = $website -notlike 'http*://*'
 	$invalid = 'BROWSER INVALID / DEFERRING TO DEFAULT'
 
