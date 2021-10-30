@@ -7,20 +7,24 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Twitter][twitter-shield]][twitter-url]
 
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <!--
-  <a href="https://github.com/jedington/VOID-functions/">
+  <a href="https://github.com/jedington/VOID-functions">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
   -->  
 
-  <h3 align="center">[PowerShell] VOID functions</h3>
-
-## Description
-An open-source module project with PowerShell Core 7.X and forward.
+  <h3 align="center">
+  <img 
+    src="https://readme-typing-svg.herokuapp.com?lines=VOID-functions&center=true&size=30" 
+    alt="VOID-functions"/> 
+  </h3>
+  <p align="center">
+    An open-source module project with PowerShell Core 7.X and forward.
+  </p>
+</p>
 
 ## Notes
 * [Opt-1] This [Installer](https://github.com/jedington/VOID-functions/blob/master/VOID-functions-installer.ps1) will automate moving this to the user-specific Modules directory.
