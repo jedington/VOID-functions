@@ -9,8 +9,8 @@
 #################################
 function Clear-BrowserCache {
 	Write-Host 'Will clear all browser cache.'
-	$bcache = Invoke-VOIDYN 'Works on Windows only. Continue?'
-	if ([bool]($bcache) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
+	$answeryn = Invoke-VOIDYN 'Works on Windows only. Continue?'
+	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
 		Where-Object PSVersion -le 5 -EA 0))) {
 		$users = Get-ChildItem "$env:HOMEDRIVE\Users" | Select-Object Name
 		$users = $users.Name
@@ -73,7 +73,7 @@ function Clear-BrowserCache {
 			}
 		}
 	}
-	elseif ([bool]($tempfiles) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
+	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
 		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
 	}
 }

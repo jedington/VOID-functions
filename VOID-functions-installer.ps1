@@ -75,7 +75,7 @@ Invoke-WebRequest -Uri "$rawrepo/$module" -OutFile $VOIDmodule
 Invoke-WebRequest -Uri "$rawrepo/$manifest" -OutFile $VOIDmanifest
 
 $repo = 'https://github.com/jedington/VOID-functions/tree/master/VOID-functions/functions'
-$functionslist = (Invoke-WebRequest $repo).Links | ? href -like *.ps1 
+$functionslist = (Invoke-WebRequest $repo).Links | Where-Object href -like *.ps1 
 foreach ($function in [array]($functionslist.href)) {
     $function = $function.TrimStart('/jedington/VOID-functions/blob/master/VOID-functions/functions/')
     $download = ($VOIDfunctions+$function)

@@ -9,8 +9,8 @@
 #########################################
 function Clear-TempFiles {
 	Write-Host 'Will clear all temp files and cache.'
-	$tempfiles = Invoke-VOIDYN 'Works on Windows only. Continue?'
-	if ([bool]($tempfiles) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
+	$answeryn = Invoke-VOIDYN 'Works on Windows only. Continue?'
+	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
 		Where-Object PSVersion -le 5 -EA 0))) {
 		$users = Get-ChildItem "$env:HOMEDRIVE\Users" | Select-Object Name
 		$users = $users.Name
@@ -37,7 +37,7 @@ function Clear-TempFiles {
 		Remove-Item -path "$env:windir\Downloaded Program Files\*" -Recurse -Force -EA 0 -Verbose
 		Remove-Item -path "$env:ProgramData\Microsoft\Windows\WER\*" -Recurse -Force -EA 0 -Verbose
 	}
-	elseif ([bool]($tempfiles) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
+	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
 		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
 	}
 }

@@ -44,4 +44,8 @@ function Start-Browser ([string] $browser, [string] $website='github.com') {
 	else {
 		if ($checkhttp) {start "https://$website"} else {start $website}
 	}
+	Clear-Variable -Name 'browser' -EA 0
+	Clear-Variable -Name 'website' -EA 0
+	Clear-Variable -Name 'invalid' -EA 0
+	Clear-Variable -Name 'checkhttp' -EA 0
 }
