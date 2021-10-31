@@ -27,4 +27,5 @@ function Start-PowerShellCore-AsAdmin ([string]$value='.') {
 	else {
 		Invoke-VOIDX 'OPERATION FAILED... CANT ESCALATE TO ADMIN'
 	}
+	Clear-Variable -Name 'value' -EA 0
 }
