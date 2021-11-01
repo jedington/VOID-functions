@@ -53,6 +53,9 @@ function Start-ShredFile ([string]$filepath) {
 			$stream.Close()
 			$stream.Dispose()
 		}
+		##############
+		# CLEAR VARS #
+		##############
 		Clear-Variable -Name 'filepath' -EA 0
 		Clear-Variable -Name 'file' -EA 0
 		Clear-Variable -Name 'filename' -EA 0

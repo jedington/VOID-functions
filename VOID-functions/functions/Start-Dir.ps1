@@ -9,5 +9,8 @@
 #############################################
 function Start-Dir ([string]$path='.') {
 	Invoke-Item $path
+	##############
+	# CLEAR VARS #
+	##############
 	Clear-Variable -Name 'path' -EA 0
 }

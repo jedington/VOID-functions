@@ -7,3 +7,12 @@ $manifest = Import-PowerShellDataFile "$modulepath\VOID-functions\VOID-functions
 [version]$Version = $manifest.ModuleVersion
 [version]$NewVersion = "{0}.{1}.{2}" -f $Version.Major, $Version.Minor, ($Version.Build + 1) 
 Update-ModuleManifest -Path $source -ModuleVersion $NewVersion
+
+##############
+# CLEAR VARS #
+##############
+Clear-Variable -Name 'modulepath' -EA 0
+Clear-Variable -Name 'source' -EA 0
+Clear-Variable -Name 'manifest' -EA 0
+Clear-Variable -Name 'Version' -EA 0
+Clear-Variable -Name 'NewVersion' -EA 0

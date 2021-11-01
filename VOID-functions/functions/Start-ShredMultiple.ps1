@@ -16,6 +16,9 @@ function Start-ShredMultiple ([string]$dirpath) {
 			Start-ShredFile $filepath
 			$dirpathcount = (Get-ChildItem -Path $dirpath -Force).Count
 		}
+		##############
+		# CLEAR VARS #
+		##############
 		Clear-Variable -Name 'dirpath' -EA 0		
 		Clear-Variable -Name 'dirpathcount' -EA 0		
 	}
