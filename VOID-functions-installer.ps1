@@ -90,3 +90,20 @@ if (!(Get-Content $profile | Select-String 'Import-Module VOID-functions -Disabl
 }
  
 Import-Module VOID-functions -DisableNameChecking
+
+##############
+# CLEAR VARS #
+##############
+Clear-Variable -Name 'rawrepo' -EA 0
+Clear-Variable -Name 'VOID' -EA 0
+Clear-Variable -Name 'module' -EA 0
+Clear-Variable -Name 'manifest' -EA 0
+Clear-Variable -Name 'function' -EA 0
+Clear-Variable -Name 'VOIDmodule' -EA 0
+Clear-Variable -Name 'VOIDmanifest' -EA 0
+Clear-Variable -Name 'VOIDfunctions' -EA 0
+Clear-Variable -Name 'download' -EA 0
+Clear-Variable -Name 'source' -EA 0
+Clear-Variable -Name 'winPWSH' -EA 0
+Clear-Variable -Name 'corePWSH' -EA 0
+Clear-Variable -Name 'otherPWSH' -EA 0

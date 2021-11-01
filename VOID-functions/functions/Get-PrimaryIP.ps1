@@ -19,4 +19,8 @@ function Get-PrimaryIP {
 	else {
 		Invoke-VOIDX 'OPERATION FAILED... UNKNOWN PROBLEM'
 	}
+	##############
+	# CLEAR VARS #
+	##############
+	Clear-Variable -Name 'primaryip' -EA 0
 }

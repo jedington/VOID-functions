@@ -26,14 +26,14 @@ function Clear-BrowserCache {
 			}
 			$profiles = Get-ChildItem -Path $bchromep | Select-Object Name | Where-Object Name -Like "Profile*"
         	foreach ($account in $profiles) {
-				$account = $account.Name
+				$accountp = $account.Name
 				$bchromep = "$env:HOMEDRIVE\Users\$user\AppData\Local\Google\Chrome\User Data"
-				Remove-Item -path "$bchromep\$account\Cache\*" -Recurse -Force -EA 0 -Verbose
-				Remove-Item -path "$bchromep\$account\Cache2\entries\*" -Recurse -Force -EA 0 -Verbose
-				Remove-Item -path "$bchromep\$account\Cookies\*" -Recurse -Force -EA 0 -Verbose
-				Remove-Item -path "$bchromep\$account\Media Cache" -Recurse -Force -EA 0 -Verbose
-				Remove-Item -path "$bchromep\$account\Cookies-Journal" -Recurse -Force -EA 0 -Verbose
-				Remove-Item -path "$bchromep\$account\JumpListIconsOld" -Recurse -Force -EA 0 -Verbose
+				Remove-Item -path "$bchromep\$accountp\Cache\*" -Recurse -Force -EA 0 -Verbose
+				Remove-Item -path "$bchromep\$accountp\Cache2\entries\*" -Recurse -Force -EA 0 -Verbose
+				Remove-Item -path "$bchromep\$accountp\Cookies\*" -Recurse -Force -EA 0 -Verbose
+				Remove-Item -path "$bchromep\$accountp\Media Cache" -Recurse -Force -EA 0 -Verbose
+				Remove-Item -path "$bchromep\$accountp\Cookies-Journal" -Recurse -Force -EA 0 -Verbose
+				Remove-Item -path "$bchromep\$accountp\JumpListIconsOld" -Recurse -Force -EA 0 -Verbose
 			}
 		}
 		if ([bool](Get-Service mozilla*)) {
@@ -76,4 +76,16 @@ function Clear-BrowserCache {
 	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
 		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
 	}
+	##############
+	# CLEAR VARS #
+	##############
+	Clear-Variable -Name 'bchromed' -EA 0
+	Clear-Variable -Name 'bchromep' -EA 0
+	Clear-Variable -Name 'accountp' -EA 0
+	Clear-Variable -Name 'bff' -EA 0
+	Clear-Variable -Name 'bffdefault' -EA 0
+	Clear-Variable -Name 'bffdev' -EA 0
+	Clear-Variable -Name 'bedge' -EA 0
+	Clear-Variable -Name 'bopera' -EA 0
+	Clear-Variable -Name 'users' -EA 0
 }

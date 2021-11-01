@@ -15,5 +15,8 @@ function Start-PowerShellWindows-AsAdmin ([string]$value='.') {
 	else {
     	Invoke-VOIDX 'OPERATION FAILED... WINDOWS POWERSHELL NOT FOUND'
 	}
+	##############
+	# CLEAR VARS #
+	##############
 	Clear-Variable -Name 'value' -EA 0
 }

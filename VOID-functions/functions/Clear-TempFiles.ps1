@@ -40,4 +40,11 @@ function Clear-TempFiles {
 	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
 		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
 	}
+	##############
+	# CLEAR VARS #
+	##############
+	Clear-Variable -Name 'userdir' -EA 0
+	Clear-Variable -Name 'userappdata' -EA 0
+	Clear-Variable -Name 'userwindata' -EA 0
+	Clear-Variable -Name 'users' -EA 0
 }

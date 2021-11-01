@@ -15,4 +15,8 @@ function Get-PublicIP {
 	else {
 		Invoke-VOIDX 'OPERATION FAILED... CHECK NET CONNECTION'
 	}
+	##############
+	# CLEAR VARS #
+	##############
+	Clear-Variable -Name 'publicip' -EA 0
 }	
