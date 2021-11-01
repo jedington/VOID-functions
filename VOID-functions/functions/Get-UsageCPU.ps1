@@ -7,7 +7,7 @@
 #################
 # Get CPU Usage #
 #################
-function Invoke-VOIDX ([string]$message) {
+function Get-UsageCPU {
 	$totalCPU = Get-CimInstance win32_processor |
 	    Measure-Object MaxClockSpeed -Maximum | Select-Object -expand Maximum
 	$currentCPUpct = Get-CimInstance win32_processor |
