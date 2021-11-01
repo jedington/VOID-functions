@@ -72,8 +72,8 @@ Description = '    A Module of example functions while I am learning PowerShell.
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Clear-BrowserCache', 'Clear-RecycleBin', 'Clear-TempFiles', 
-               'Get-AllHostIPs', 'Get-PrimaryIP', 'Get-PublicIP', 'Get-Version', 
-               'Start-Browser', 'Start-Dir', 'Start-Google', 
+               'Get-AllHostIPs', 'Get-PrimaryIP', 'Get-PublicIP', 'Get-UsageCPU', 
+               'Get-UsageRAM', 'Get-Version', 'Start-Browser', 'Start-Dir', 'Start-Google', 
                'Start-PowerShellCore-AsAdmin', 'Start-PowerShellWindows-AsAdmin', 
                'Start-ShredFile', 'Start-ShredMultiple', 'Update-Help-VOID', 
                'Update-PowerShell', 'Invoke-VOIDT', 'Invoke-VOIDX', 'Invoke-VOIDYN'
