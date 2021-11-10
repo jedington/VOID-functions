@@ -71,7 +71,7 @@ Description = '    A Module of example functions while I am learning PowerShell.
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Clear-BrowserCache', 'Clear-RecycleBin', 'Clear-TempFiles', 
+FunctionsToExport = 'Clear-BrowserCache', 'Clear-RecycleBin', 'Clear-TempFiles', 'Start-Unzip', 'Get-RandomPassword', 'Update-Profile',
                'Get-AllHostIPs', 'Get-PrimaryIP', 'Get-PublicIP', 'Get-UsageCPU', 
                'Get-UsageRAM', 'Get-Version', 'Start-Browser', 'Start-Dir', 'Start-Google', 
                'Start-PowerShellCore-AsAdmin', 'Start-PowerShellWindows-AsAdmin', 
