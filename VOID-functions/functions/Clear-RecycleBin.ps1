@@ -11,7 +11,7 @@ function Clear-RecycleBin {
 	#- 		$dirpath = Get-ChildItem -Path 'C:\$Recycle.Bin' -Force
 	#- 		Start-ShredMultiple $dirpath
 	#- 	}
-	$answeryn = VOID-YN 'Are you sure you want to clear the Recycle Bin?'
+	$answeryn = Invoke-VOIDYN 'Are you sure you want to clear the Recycle Bin?'
 	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
 		Where-Object PSVersion -le 5 -EA 0))) {
 		Get-ChildItem -Path 'C:\$Recycle.Bin' -Force | Remove-Item -Recurse -EA 0

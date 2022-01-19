@@ -71,12 +71,12 @@ Description = '    A Module of example functions while I am learning PowerShell.
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Clear-BrowserCache', 'Clear-RecycleBin', 'Clear-TempFiles', 'Start-Unzip', 'Get-RandomPassword', 'Update-Profile',
-               'Get-AllHostIPs', 'Get-PrimaryIP', 'Get-PublicIP', 'Get-UsageCPU', 
-               'Get-UsageRAM', 'Get-Version', 'Start-Browser', 'Start-Dir', 'Start-Google', 
-               'Start-PowerShellCore-AsAdmin', 'Start-PowerShellWindows-AsAdmin', 
-               'Start-ShredFile', 'Start-ShredMultiple', 'Update-Help-VOID', 
-               'Update-PowerShell', 'Invoke-VOIDT', 'Invoke-VOIDX', 'Invoke-VOIDYN'
+FunctionsToExport = 'Clear-BrowserCache', 'Clear-RecycleBin', 'Clear-TempFiles', 
+               'Get-AllHostIPs', 'Get-PrimaryIP', 'Get-PublicIP', 'Get-RandomPassword', 
+               'Get-UsageCPU', 'Get-UsageRAM', 'Get-Version', 'Start-Browser', 'Start-Dir', 
+               'Start-Google', 'Start-PowerShellCore-AsAdmin', 'Start-PowerShellWindows-AsAdmin', 
+               'Start-ShredFile', 'Start-ShredMultiple', 'Start-Unzip', 'Update-Help-VOID', 
+               'Update-Profile', 'Update-PowerShell', 'Invoke-VOIDT', 'Invoke-VOIDX', 'Invoke-VOIDYN'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -129,13 +129,11 @@ PrivateData = @{
 
     } # End of PSData hashtable
 
- } # End of PrivateData hashtable
+} # End of PrivateData hashtable
 
 # HelpInfo URI of this module
 # HelpInfoURI = ''
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''
-
 }
-
