@@ -16,7 +16,8 @@ function Update-PowerShell {
 		else {
 			& bash "wget https://aka.ms/install-powershell.sh; 
 					sudo bash install-powershell.sh; 
-					rm install-powershell.sh"
+					rm install-powershell.sh; 
+					pwsh"
 		}
 		Invoke-VOIDX 'PAUSED... <ENTER> WHEN READY TO CONTINUE'
 		Read-Host		
