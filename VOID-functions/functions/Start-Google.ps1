@@ -12,5 +12,5 @@ function Start-Google ([string]$search='foundation') {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'search' -EA 0
+	Remove-Variable -Name 'search' -EA 0
 }

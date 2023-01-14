@@ -76,16 +76,20 @@ function Clear-BrowserCache {
 	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
 		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
 	}
+	else {
+        Invoke-VOIDX 'OPERATION CANCELLED'
+    }
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'bchromed' -EA 0
-	Clear-Variable -Name 'bchromep' -EA 0
-	Clear-Variable -Name 'accountp' -EA 0
-	Clear-Variable -Name 'bff' -EA 0
-	Clear-Variable -Name 'bffdefault' -EA 0
-	Clear-Variable -Name 'bffdev' -EA 0
-	Clear-Variable -Name 'bedge' -EA 0
-	Clear-Variable -Name 'bopera' -EA 0
-	Clear-Variable -Name 'users' -EA 0
+	Remove-Variable -Name 'bchromed' -EA 0
+	Remove-Variable -Name 'bchromep' -EA 0
+	Remove-Variable -Name 'accountp' -EA 0
+	Remove-Variable -Name 'bff' -EA 0
+	Remove-Variable -Name 'bffdefault' -EA 0
+	Remove-Variable -Name 'bffdev' -EA 0
+	Remove-Variable -Name 'bedge' -EA 0
+	Remove-Variable -Name 'bopera' -EA 0
+	Remove-Variable -Name 'users' -EA 0
+	Remove-Variable -Name 'answeryn' -EA 0
 }

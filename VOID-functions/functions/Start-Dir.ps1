@@ -12,5 +12,5 @@ function Start-Dir ([string]$path='.') {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'path' -EA 0
+	Remove-Variable -Name 'path' -EA 0
 }

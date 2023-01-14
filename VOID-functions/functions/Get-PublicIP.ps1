@@ -18,5 +18,5 @@ function Get-PublicIP {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'publicip' -EA 0
+	Remove-Variable -Name 'publicip' -EA 0
 }	

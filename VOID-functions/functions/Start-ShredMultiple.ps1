@@ -7,19 +7,24 @@
 # works on only files for now; folders will be ignored
 function Start-ShredMultiple ([string]$dirpath) {
 	if (!($dirpath)) {
-		Invoke-VOIDX 'USAGE: <DIRPATH>; FILES NEED TO BE IN THE SAME FOLDER'
+		Invoke-VOIDX 'USAGE: Start-ShredMultiple <DIRPATH>'
 	}
 	else {
-		$dirpathcount = (Get-ChildItem -Path $dirpath -Force).Count
-		while ($dirpathcount -ge 1) {
-			[string]$filepath = Get-ChildItem -Path $dirpath -Force | Select-Object -first 1
-			Start-ShredFile $filepath
-			$dirpathcount = (Get-ChildItem -Path $dirpath -Force).Count
+		Add-Type -AssemblyName Microsoft.VisualBasic
+		[array]$items = Get-ChildItem -Path $dirpath -Force | ForEach-Object { $_.FullName }
+		foreach ($item in $items) {
+			if (Test-Path -Path $item -PathType Container) {
+				Start-ShredMultiple $item
+			    Get-Item -Path $item -Force | Remove-Item -Recurse -EA 0 -Verbose
+			}
+			else {
+			    Start-ShredFile $item
+			}
 		}
-		##############
-		# CLEAR VARS #
-		##############
-		Clear-Variable -Name 'dirpath' -EA 0		
-		Clear-Variable -Name 'dirpathcount' -EA 0		
 	}
+	##############
+	# CLEAR VARS #
+	##############
+	Remove-Variable -Name 'dirpath' -EA 0
+	Remove-Variable -Name 'items' -EA 0
 }

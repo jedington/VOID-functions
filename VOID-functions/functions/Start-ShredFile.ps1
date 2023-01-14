@@ -7,18 +7,18 @@
 # works on only files for now; folders will be ignored
 function Start-ShredFile ([string]$filepath) {
 	if (!($filepath)) {
-		Invoke-VOIDX 'USAGE: Start-ShredFile <FILEPATH>'
+		Invoke-VOIDT 'USAGE: Start-ShredFile <FILEPATH>'
 	}
 	else {
 		$size = 2048
 		$buffer,$rng,$stream,$file = $null
 		$file = $filepath | Get-Item
 		if ($file -eq $null) {
-			Invoke-VOIDX 'INPUT PATH IS NOT VALID'
-		} 
-		elseif ($file -isnot [IO.FileInfo]) {
-			Invoke-VOIDX 'INPUT PATH IS NOT A FILE'
-		} 
+			Invoke-VOIDT "INPUT PATH IS NOT VALID"
+		}
+		elseif ($file -isnot [IO.FileInfo]) { 
+			Invoke-VOIDT "INPUT PATH ($file) IS NOT A FILE" 
+		}
 		else {
 			$file.Attributes = 'Normal'
 			$sectors = [Math]::Ceiling($file.Length / $size)
@@ -40,7 +40,7 @@ function Start-ShredFile ([string]$filepath) {
 			$file.Delete()
 			$filename = [IO.Path]::GetFileName($filepath)
 			if ([bool]($filename)) {
-				Invoke-VOIDX "FILE SHREDDED ($filename)"
+				Write-Host "FILE SHREDDED ($filename)" -ForegroundColor Magenta
 			}
 		}
 		if ($buffer -ne $null) {
@@ -53,15 +53,16 @@ function Start-ShredFile ([string]$filepath) {
 			$stream.Close()
 			$stream.Dispose()
 		}
-		##############
-		# CLEAR VARS #
-		##############
-		Clear-Variable -Name 'filepath' -EA 0
-		Clear-Variable -Name 'file' -EA 0
-		Clear-Variable -Name 'filename' -EA 0
-		Clear-Variable -Name 'sectors' -EA 0
-		Clear-Variable -Name 'stream' -EA 0
-		Clear-Variable -Name 'buffer' -EA 0
-		Clear-Variable -Name 'rng' -EA 0
-	} 
+	}
+	##############
+	# CLEAR VARS #
+	##############
+	Remove-Variable -Name 'filepath' -EA 0
+	Remove-Variable -Name 'file' -EA 0
+	Remove-Variable -Name 'size' -EA 0
+	Remove-Variable -Name 'filename' -EA 0
+	Remove-Variable -Name 'sectors' -EA 0
+	Remove-Variable -Name 'stream' -EA 0
+	Remove-Variable -Name 'buffer' -EA 0
+	Remove-Variable -Name 'rng' -EA 0
 }
