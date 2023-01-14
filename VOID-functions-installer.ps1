@@ -59,7 +59,7 @@ if ([bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0) -or [bool]($IsW
     $VOIDfunctions = "$modulepath\$VOID\functions\"
 }
 else {
-    #- $unixPWSH = "~/.local/share/powershell/Modules"
+    #- $unixPWSH = "$HOME/.local/share/powershell/Modules"
     New-Item -ItemType Directory -Path "$modulepath/VOID-functions" -Name 'functions' -Force
     $VOIDmodule = "$modulepath/$VOID/$module"
     $VOIDmanifest = "$modulepath/$VOID/$manifest"
@@ -88,16 +88,25 @@ Import-Module VOID-functions -DisableNameChecking
 ##############
 # CLEAR VARS #
 ##############
-Clear-Variable -Name 'rawrepo' -EA 0
-Clear-Variable -Name 'repo' -EA 0
-Clear-Variable -Name 'VOID' -EA 0
-Clear-Variable -Name 'modulepath' -EA 0
-Clear-Variable -Name 'module' -EA 0
-Clear-Variable -Name 'manifest' -EA 0
-Clear-Variable -Name 'VOIDmodule' -EA 0
-Clear-Variable -Name 'VOIDmanifest' -EA 0
-Clear-Variable -Name 'VOIDfunctions' -EA 0
-Clear-Variable -Name 'functionslist' -EA 0
-Clear-Variable -Name 'function' -EA 0
-Clear-Variable -Name 'download' -EA 0
-Clear-Variable -Name 'source' -EA 0
+Remove-Variable -Name 'rawrepo' -EA 0
+Remove-Variable -Name 'repo' -EA 0
+Remove-Variable -Name 'VOID' -EA 0
+Remove-Variable -Name 'modulepath' -EA 0
+Remove-Variable -Name 'module' -EA 0
+Remove-Variable -Name 'manifest' -EA 0
+Remove-Variable -Name 'VOIDmodule' -EA 0
+Remove-Variable -Name 'VOIDmanifest' -EA 0
+Remove-Variable -Name 'VOIDfunctions' -EA 0
+Remove-Variable -Name 'functionslist' -EA 0
+Remove-Variable -Name 'function' -EA 0
+Remove-Variable -Name 'download' -EA 0
+Remove-Variable -Name 'source' -EA 0
+
+#######################
+# FLUSH SYSTEM MEMORY #
+#######################
+if ([bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0) -or [bool]($IsWindows)) {
+    [System.GC]::Collect()
+    [System.GC]::WaitForPendingFinalizers()
+    [System.GC]::Collect()
+}

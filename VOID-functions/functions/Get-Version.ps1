@@ -13,5 +13,5 @@ function Get-Version {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'psversion' -EA 0
+	Remove-Variable -Name 'psversion' -EA 0
 }

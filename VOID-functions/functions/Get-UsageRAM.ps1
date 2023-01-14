@@ -23,9 +23,9 @@ function Get-UsageRAM {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'systemInfo' -EA 0
-	Clear-Variable -Name 'totalRAM' -EA 0
-	Clear-Variable -Name 'freeRAM' -EA 0
-	Clear-Variable -Name 'currentRAM' -EA 0
-	Clear-Variable -Name 'currentRAMpct' -EA 0
+	Remove-Variable -Name 'systemInfo' -EA 0
+	Remove-Variable -Name 'totalRAM' -EA 0
+	Remove-Variable -Name 'freeRAM' -EA 0
+	Remove-Variable -Name 'currentRAM' -EA 0
+	Remove-Variable -Name 'currentRAMpct' -EA 0
 }

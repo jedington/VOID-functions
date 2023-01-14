@@ -17,6 +17,6 @@ function Invoke-VOIDT ([string]$message) {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'message' -EA 0
-	Clear-Variable -Name 'mrandom' -EA 0
+	Remove-Variable -Name 'message' -EA 0
+	Remove-Variable -Name 'mrandom' -EA 0
 }

@@ -31,5 +31,5 @@ function Get-AllHostIPs {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'allhostips' -EA 0
+	Remove-Variable -Name 'allhostips' -EA 0
 }

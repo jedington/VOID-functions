@@ -22,7 +22,7 @@ function Get-UsageCPU {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'totalCPU' -EA 0
-	Clear-Variable -Name 'currentCPU' -EA 0
-	Clear-Variable -Name 'currentCPUpct' -EA 0
+	Remove-Variable -Name 'totalCPU' -EA 0
+	Remove-Variable -Name 'currentCPU' -EA 0
+	Remove-Variable -Name 'currentCPUpct' -EA 0
 }

@@ -17,6 +17,6 @@ function Invoke-VOIDX ([string]$message) {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'message' -EA 0
-	Clear-Variable -Name 'mdashes' -EA 0
+	Remove-Variable -Name 'message' -EA 0
+	Remove-Variable -Name 'mdashes' -EA 0
 }

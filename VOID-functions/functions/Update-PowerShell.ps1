@@ -22,4 +22,8 @@ function Update-PowerShell {
 		Invoke-VOIDX 'PAUSED... <ENTER> WHEN READY TO CONTINUE'
 		Read-Host		
 	}
+    ##############
+	# CLEAR VARS #
+	##############
+	Remove-Variable -Name 'answeryn' -EA 0
 }

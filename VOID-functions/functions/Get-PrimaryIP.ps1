@@ -22,5 +22,5 @@ function Get-PrimaryIP {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'primaryip' -EA 0
+	Remove-Variable -Name 'primaryip' -EA 0
 }

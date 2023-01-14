@@ -30,5 +30,5 @@ function Start-PowerShellCore-AsAdmin ([string]$value='.') {
 	##############
 	# CLEAR VARS #
 	##############
-	Clear-Variable -Name 'value' -EA 0
+	Remove-Variable -Name 'value' -EA 0
 }
