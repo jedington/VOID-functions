@@ -22,9 +22,4 @@ function Invoke-VOIDYN ([string]$message) {
 		'no'	{return $false}
 		'n'		{return $false}
 	}
-	##############
-	# CLEAR VARS #
-	##############
-	Remove-Variable -Name 'message' -EA 0
-	Remove-Variable -Name 'answeryn' -EA 0
 }

@@ -14,9 +14,4 @@ function Invoke-VOIDX ([string]$message) {
 	Invoke-VOIDT "<<< $message >>>"
 	Invoke-VOIDT "<<<-$mdashes->>>"
 	Write-Host ''
-	##############
-	# CLEAR VARS #
-	##############
-	Remove-Variable -Name 'message' -EA 0
-	Remove-Variable -Name 'mdashes' -EA 0
 }

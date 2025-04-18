@@ -4,19 +4,20 @@
 	.NOTES
 #>
 
-#############################
-# GET RECYCLE BIN (WINDOWS) #
-#############################
+###############################
+# CLEAR RECYCLE BIN (WINDOWS) #
+###############################
 function Clear-RecycleBin {
 	$answeryn = Invoke-VOIDYN 'Are you sure you want to clear the Recycle Bin?'
-	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
-		Where-Object PSVersion -le 5 -EA 0))) {
-		Get-ChildItem -Path 'C:\$Recycle.Bin' -Force | Remove-Item -Recurse -EA 0 -Verbose
+	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0))) {
+		# Still testing; RecycleBin is a bit difficult as it will always have lingering 'ChildItem' Objects
+		# Start-ShredMultiple 'C:\$Recycle.Bin'
+		Get-ChildItem -Path 'C:\$Recycle.Bin' -Force | Remove-Item -Recurse -EA 0
 	}
-	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
+	elseif ([bool]($IsLinux) -or [bool]($IsMacOS)) {
 		Invoke-VOIDX 'WINDOWS ONLY...'
 	}
-	else {
+    else {
         Invoke-VOIDX 'OPERATION CANCELLED'
     }
 	##############

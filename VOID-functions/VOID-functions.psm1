@@ -30,7 +30,7 @@ elseif ([bool]($IsWindows)) {
     $VOIDfunctions = "$corePWSH\VOID-functions\functions\"
 }
 else {
-    $otherPWSH = "$HOME/.local/share/powershell/Modules"
+    $otherPWSH = "/usr/local/share/powershell/Modules"
     $VOIDfunctions = "$otherPWSH/VOID-functions/functions/"
 }
 

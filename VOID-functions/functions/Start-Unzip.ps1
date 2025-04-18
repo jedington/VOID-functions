@@ -1,20 +1,11 @@
-<#
-	.SYNOPSIS
-	.DESCRIPTION
-	.NOTES
-#>
-
-#########
-# UNZIP #
-#########
-function Start-Unzip ([string]$file) {
+function Start-Unzip ($file) {
     $dirname = (Get-Item $file).Basename
-    echo("Extracting", $file, "to", $dirname)
+    Write-Output("Extracting", $file, "to", $dirname)
     New-Item -Force -ItemType directory -Path $dirname
-    Expand-Archive $file -DestinationPath $dirname
+    Expand-Archive $file -OutputPath $dirname -ShowProgress
     ##############
 	# CLEAR VARS #
 	##############
-	Remove-Variable -Name 'file' -EA 0
 	Remove-Variable -Name 'dirname' -EA 0
+	Remove-Variable -Name 'file' -EA 0
 }

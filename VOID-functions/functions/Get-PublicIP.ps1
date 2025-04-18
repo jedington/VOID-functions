@@ -10,7 +10,7 @@
 function Get-PublicIP {
 	$publicip = [string](Invoke-WebRequest -Uri 'http://ifconfig.me/ip').Content
 	if ([bool]($publicip)) {
-    	Invoke-VOIDX "PUBLIC IP: $publicip"
+    	Invoke-VOIDT "PUBLIC IP: $publicip"
 	}
 	else {
 		Invoke-VOIDX 'OPERATION FAILED... CHECK NET CONNECTION'

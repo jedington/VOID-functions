@@ -15,7 +15,7 @@ function Clear-Memory {
         [System.GC]::Collect()
         Invoke-VOIDX "Memory used after cleanup: $([System.GC]::GetTotalMemory($true))"
     }
-	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
+	elseif ([bool]($IsLinux) -or [bool]($IsMacOS)) {
 		Invoke-VOIDX 'WINDOWS ONLY...'
 	}
     else {
