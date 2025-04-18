@@ -8,10 +8,9 @@
 # CLEAR BROWSER CACHE (WINDOWS) #
 #################################
 function Clear-BrowserCache {
-	Write-Host 'Will clear all browser cache.'
+	Invoke-VOIDT 'Will clear all browser cache.,.'
 	$answeryn = Invoke-VOIDYN 'Works on Windows only. Continue?'
-	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
-		Where-Object PSVersion -le 5 -EA 0))) {
+	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0))) {
 		$users = Get-ChildItem "$env:HOMEDRIVE\Users" | Select-Object Name
 		$users = $users.Name
 		if ([bool](Get-Service googlechrome*)) {
@@ -73,23 +72,23 @@ function Clear-BrowserCache {
 			}
 		}
 	}
-	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
-		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
+	elseif ([bool]($IsLinux) -or [bool]($IsMacOS)) {
+		Invoke-VOIDX 'WINDOWS ONLY...'
 	}
-	else {
+    else {
         Invoke-VOIDX 'OPERATION CANCELLED'
     }
 	##############
 	# CLEAR VARS #
 	##############
+	Remove-Variable -Name 'accountp' -EA 0
+	Remove-Variable -Name 'answeryn' -EA 0
 	Remove-Variable -Name 'bchromed' -EA 0
 	Remove-Variable -Name 'bchromep' -EA 0
-	Remove-Variable -Name 'accountp' -EA 0
 	Remove-Variable -Name 'bff' -EA 0
 	Remove-Variable -Name 'bffdefault' -EA 0
 	Remove-Variable -Name 'bffdev' -EA 0
 	Remove-Variable -Name 'bedge' -EA 0
 	Remove-Variable -Name 'bopera' -EA 0
 	Remove-Variable -Name 'users' -EA 0
-	Remove-Variable -Name 'answeryn' -EA 0
 }

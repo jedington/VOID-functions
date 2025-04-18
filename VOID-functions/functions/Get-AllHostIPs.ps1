@@ -8,22 +8,13 @@
 # GET ALL HOST IPS #
 ####################
 function Get-AllHostIPs {
-	if ([bool]($IsWindows) -or [bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0)) {
-		$allhostips = [string](
-			ipconfig | Select-String (
-				'(\s)+IPv4.+\s(?<IP>(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}))(\s)*'
-			) -AllMatches | % {$_.Matches} | % {$_.Groups['IP']} | % {$_.Value}
-		)
-	}
-	else {
-		$allhostips = [string](
-			ifconfig | Select-String (
-				'(\s)+IPv4.+\s(?<IP>(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}))(\s)*'
-			) -AllMatches | % {$_.Matches} | % {$_.Groups['IP']} | % {$_.Value}
-		)
-	}
+	$allhostips = [string](
+		Get-NetIPAddress | Where-Object {
+			$_.AddressState -eq 'Preferred' -and $_.ValidLifetime -lt '24:00:00'
+		}
+	).IPAddress	
 	if ([bool]($allhostips)) {
-		$allhostips.Split()
+    	$allhostips.Split()
 	}
 	else {
 		Invoke-VOIDX 'OPERATION FAILED... UNKNOWN PROBLEM'

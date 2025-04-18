@@ -8,10 +8,9 @@
 # CLEAR TEMP AND CACHED FILES (WINDOWS) #
 #########################################
 function Clear-TempFiles {
-	Write-Host 'Will clear all temp files and cache.'
+	Invoke-VOIDT 'Will clear all temp files and cache...'
 	$answeryn = Invoke-VOIDYN 'Works on Windows only. Continue?'
-	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | 
-		Where-Object PSVersion -le 5 -EA 0))) {
+	if ([bool]($answeryn) -and ([bool]($IsWindows) -or [bool]($PSVersionTable | Where-Object PSVersion -le 5 -EA 0))) {
 		$users = Get-ChildItem "$env:HOMEDRIVE\Users" | Select-Object Name
 		$users = $users.Name
 		foreach ($user in $users) {
@@ -37,18 +36,18 @@ function Clear-TempFiles {
 		Remove-Item -path "$env:windir\Downloaded Program Files\*" -Recurse -Force -EA 0 -Verbose
 		Remove-Item -path "$env:ProgramData\Microsoft\Windows\WER\*" -Recurse -Force -EA 0 -Verbose
 	}
-	elseif ([bool]($answeryn) -and ([bool]($IsLinux) -or [bool]($IsMacOS))) {
-		Invoke-VOIDX 'WINDOWS ONLY FOR NOW...'
+	elseif ([bool]($IsLinux) -or [bool]($IsMacOS)) {
+		Invoke-VOIDX 'WINDOWS ONLY...'
 	}
-	else {
+    else {
         Invoke-VOIDX 'OPERATION CANCELLED'
     }
 	##############
 	# CLEAR VARS #
 	##############
+	Remove-Variable -Name 'answeryn' -EA 0
 	Remove-Variable -Name 'userdir' -EA 0
 	Remove-Variable -Name 'userappdata' -EA 0
 	Remove-Variable -Name 'userwindata' -EA 0
 	Remove-Variable -Name 'users' -EA 0
-	Remove-Variable -Name 'answeryn' -EA 0
 }
